@@ -24,14 +24,15 @@ class App extends Component {
     super();
     this.state={
       input:"",
+      imageUrl:""
     }
   }
   onInputChange = (event) => { 
-    console.log(event.target.value);
+    this.setState=({input: event.target.value});
   }
 
   onButtonSubmit = () => {
-    console.log('click')
+    this.setState({imageUrl: this.state.input});
   }
 
   render(){
@@ -48,7 +49,7 @@ class App extends Component {
           onButtonSubmit={this.onButtonSubmit} 
         />
         {
-        <FaceRecognition />}
+        <FaceRecognition imageUrl={this.state.imageURl}/>}
       </div>
     );
   }
