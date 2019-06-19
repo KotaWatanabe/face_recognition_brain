@@ -66,8 +66,8 @@ displayFaceBox = (box) => {
       .catch(err => console.log(err));
   }
 
-  onRouteChange = () => {
-    this.setState({route: 'home'});
+  onRouteChange = (route) => {
+    this.setState({route: route});
   }
 
   render(){
@@ -76,7 +76,7 @@ displayFaceBox = (box) => {
         <Particles className="particles"
           params={particlesOptions}
         />
-        <Navigation />
+        <Navigation onRouteChange = {this.onRouteChange} />
         { this.state.route === 'signin' 
           ? <Signin onRouteChange = {this.onRouteChange}/>
           : <div>
